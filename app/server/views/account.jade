@@ -1,0 +1,59 @@
+extends layout
+- user = typeof(udata) != 'undefined' ? udata : {}
+
+block content
+  div.container-fluid
+    div.row-fluid
+      div.span9
+        
+        // store the userId on the client side in a hidden input field //
+        input(type='hidden', value= user._id)#userId
+        
+        #account-form-container
+          form( method="post")#account-form.form-horizontal.well.span9
+            h1  Account Info
+            p User: #{user.name}
+            hr
+            fieldset
+              #name-cg.control-group
+                label.control-label(for='name-tf') Name
+                .controls
+                  input#name-tf.input-xlarge(type='text', name='name', value= user.name)
+              #email-cg.control-group
+                label.control-label(for='email-tf') Email
+                .controls
+                  input#email-tf.input-xlarge(type='text', name='email', value= user.email)
+              if user.role="super"
+                #role-cg.control-group
+                  label.control-label(for='role-list') Role
+                  .controls
+                    select#role-list(name='role-list')
+                      option(selected=user.role == 'super') super
+                      option(selected=user.role == 'subscriber') subscriber
+              else
+                p luser
+              #email-cg.control-group
+              hr
+              p#sub2.subheading
+              #user-cg.control-group
+                label.control-label(for='user-tf') Username
+                .controls
+                  input#user-tf.input-xlarge.disabled(type='text', name='user', value= user.user)
+              #pass-cg.control-group
+                label.control-label(for='pass-tf') Password 
+                .controls
+                  input#pass-tf.input-xlarge(type='password', name='pass', value='')
+              .form-actions
+                a#updateAccount.btn.btn-primary(href='#', data-dismiss="modal") 
+                  i.icon-briefcase.icon-white 
+                  | Update 
+                span 
+                a#deleteAccount.btn.btn-danger(href='#', data-dismiss="modal") 
+                  i.icon-ban-circle.icon-white 
+                  | Delete 
+
+// display form errors in a custom modal window //      
+include modals/modals
+
+block pageScripts
+  

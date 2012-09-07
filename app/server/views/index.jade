@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div.container-fluid
+    div.row-fluid
+      div.span12.hero-unit
+        h1 Google Analytics Tower
+       
+        p Welcome to the Google Analytics Tower
+        hr
+        p A project by John Reeve that stabilizes and serves data from the Google API.  
+          | Powered node.js, mongo, and bootstrap.  It's like a hipster learning lab.
+          | Or maybe just an easy way to do something that I need to do, implemented in the most 
+          | difficult (though stylish) way I could think to do it.
+        hr
+        p Want an account?  
+          a#getAnAccount.btn.btn-info(href="mailto:#{templateInfo.data.adminPublicEmail}") Get One
+

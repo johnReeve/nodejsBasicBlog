@@ -1,0 +1,40 @@
+- user = typeof(udata) != 'undefined' ? udata : {}
+div.navbar.navbar-inverse.navbar-fixed-top
+  div.navbar-inner
+    div.container-fluid
+      if user.name
+        div.btn-group.pull-right
+          button.btn.dropdown-toggle.btn-info(data-toggle="dropdown")
+            i.icon-user.icon-white 
+            span #{user.name} 
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href="#{templateInfo.data.url}/account") Account Panel
+            li 
+              a(href="#{templateInfo.data.url}/logout") Log Out
+            if user.role="super"
+              li.divider
+              li 
+                a(href='#{templateInfo.data.url}/users/print') Users
+              li
+                a(href='#{templateInfo.data.url}/blog/new') New Blog Entry
+      else
+        a#loginButton.btn.pull-right(href='/login') login
+      a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.brand(href="/")= templateInfo.data.project
+      .nav-collapse.collapse
+        ul.nav
+          li
+            a(href="#{templateInfo.data.url}/") Home
+          li
+            a(href="#{templateInfo.data.url}/about") About
+          li
+            a(href="#{templateInfo.data.url}/blog") Blog
+          //li
+            a(href="#{templateInfo.data.url}/status") Status
+          li
+            a(href="#{templateInfo.data.url}/reports") Reports

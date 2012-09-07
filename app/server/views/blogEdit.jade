@@ -1,0 +1,59 @@
+extends layout
+- user = typeof(udata) != 'undefined' ? udata : {}
+
+block content
+  div.container-fluid
+    div.row-fluid
+      div.span9.well
+        if pdata._id
+          h1 Edit Post
+        else 
+         h1 New Post
+        form#blogEntry.span8
+          div#messageBox
+          input(type='hidden', name="userID", value= user._id)#userId
+          input(type='hidden', name="userName", value= user.name)#userName
+          if pdata._id
+            input(type='hidden', name="action", value= "update")#action
+            input(type='hidden', name="_id", value= pdata._id)#_id
+          else
+            input(type='hidden', name="action", value= "new")#action
+          fieldset
+            #title-cg.control-group
+              label.control-label(for='postTitle') Post Title
+              .controls
+                input#postTitle.input-xxlarge(type='text', name='postTitle', placeholder='Post Title...', value= pdata.title)
+            #slug-cg.control-group
+              label.control-label(for='postSlug') Post Slug
+              .controls
+                input#postSlug.input-xxlarge(type='text', name='postSlug', placeholder='Post Slug...', value= pdata.slug)
+            #body-cg.control-group
+              label.control-label(for='postBody') Post Body
+            .controls
+              textarea#postBody.input-xxlarge(name='postBody',rows='20')
+                | #{pdata.content}
+          .form-actions
+            a#updateBlog.btn.btn-primary(href='#', data-dismiss="modal") 
+              i.icon-briefcase.icon-white 
+              if pdata._id
+                |   Edit Post
+              else
+                |   Create Post
+            span 
+            if pdata._id
+              a#deleteButton.btn.btn-danger(href='#', data-dismiss="modal") 
+                i.icon-ban-circle.icon-white  
+                | Delete Post
+block pageScripts
+  if user.role = "super"
+    .modal-confirm.modal.hide.fade
+      input#postID(type="hidden", value=pdata._id)
+      div.modal-header
+          button.close(data-dismiss='modal') x
+          h3 Delete This Post
+      div.modal-body
+          p Are you sure you want to delete this post?
+      div.modal-footer
+          button(data-dismiss="modal").cancel.btn Cancel
+          button#singleDelete.submit.btn Ok
+    script(src='/js/blogEditPage.js')

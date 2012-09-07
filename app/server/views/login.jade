@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  div.container-fluid
+    div.row-fluid
+      div.span6.well.well-small
+        h3 Log In
+        if loginError
+          div.alert.alert-error= loginError
+        form.form-horizontal(method="post", id="page-signin-form")
+          div.control-group
+            label.control-label(for="user") User Name:
+            div.controls
+              input.input-small.span8(type="text", id="user", name="user")
+          div.control-group
+            label.control-label(for="pass") Password:
+            div.controls
+              input.input-small.span8(type="password", id="pass", name="pass")
+          div.control-group
+            div.controls
+              label.checkbox(for="remember-me") 
+                input(type="checkbox", name="remember-me") 
+                | Remember Me
+          div.form-actions
+            a#pageSignin.btn.btn-primary(href='#', data-dismiss="modal")
+              i.icon-briefcase.icon-white 
+              | Log In
+          p
+            a#forgotPassword(href="#") Forgot your password?  
+            a#needAccess(href="mailto:#{templateInfo.data.adminPublicEmail}") Need An Account?
+
+block pageScripts
+  script(src='/js/loginPage.js')

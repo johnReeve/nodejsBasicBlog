@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div.container-fluid
+    div.row-fluid
+      div.span3
+        div.well.sidebar-nav
+          h2 Our Blog
+          p This is a brief blog covering new developments with our project.
+      div.span9
+        h1 GAT - Blog
+        p Welcome to the #{templateInfo.data.project} Blog
+        
+        #articles
+            ul.unstyled
+              for blogpost in templateInfo.postlist
+                li
+                  h2 #{blogpost.title}
+                  a(href="blog/#{blogpost.slug}") Read More...

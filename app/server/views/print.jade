@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div.container-fluid
+    div.row-fluid
+      div.span10
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th.span1 #
+              th.span2 Name
+              th.span2 Location
+              th.span2 Username
+              th.span3 Account Created
+            tbody
+              - for (var i = 0; i < accts.length; i++)
+                tr
+                   td= i+1
+                   td= accts[i].name
+                   td= accts[i].country
+                   td= accts[i].user
+                   td= accts[i].date

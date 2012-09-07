@@ -1,0 +1,8 @@
+- user = typeof(udata) != 'undefined' ? udata : {}
+div.span12.footer
+  p &copy; John Reeve 2011
+    if user.name
+      br
+      a(href="/logout") Log Out
+
+include ../modals/modals

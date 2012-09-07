@@ -1,0 +1,32 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+/** Validation **/
+form .controls {
+  position:relative;
+}
+
+label.valid {
+  width: 24px;
+  height: 24px;
+  background: url('../img/validate/checked.png') center center no-repeat;
+  display: inline-block;
+}
+
+label.error {
+position: absolute;
+top: 21px;
+left: 20px;
+font-weight: bold;
+color: red;
+padding: 2px 8px;
+margin-top: 2px;
+background: white;
+border-radius: 6px;
+box-shadow: 3px 3px 5px rgba(30, 30, 30, 0.2);
+}

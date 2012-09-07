@@ -1,0 +1,61 @@
+- user = typeof(udata) != 'undefined' ? udata : {};
+
+extends layout
+
+block content
+  div.container-fluid
+    div.row-fluid
+      div.span9.well
+        p #{pdata.date} 
+          br 
+          |  Author | 
+          a #{pdata.author}  
+          h1 #{pdata.title}  
+        div#metaArea
+            ul.breadcrumb
+              li
+                a(href="/") Home 
+                i.icon-chevron-right.icon-white
+               li 
+                 a(href="/blog") Blog 
+                 i.icon-chevron-right.icon-white 
+               li.active #{pdata.title}   
+        div#contentArea!= pdata.content
+        div#controls
+          if user.role == "super"
+            input#postID(type="hidden", value=pdata._id)
+            a#editButton.btn.btn-primary(href="#{templateInfo.data.url}/blog/edit/#{pdata.slug}") Edit Post
+            span 
+            a#deleteButton.btn.btn-danger(href="#") Delete Post
+      //div.span3	
+        h3 Related Posts
+        ul.unstyled
+          li
+            h4 
+              a title 1
+            strong date
+            p copy asd  fsaf
+              | dfsdf gs gsdfgs a  ssddg
+              | sdgfsdgf sqwe gsdgdsfg sdfg
+              |  sdfgsdgfsdg sdf ds fgsd g
+          li
+            h4 
+              a title 2 sdf sdf sdff
+            strong date
+            p copy asdfsaf
+              | dfsdfgs gsdfgsdg
+              | sdgfsdgf sdfgsdgdsfg sdfg
+              |  sdfgsdgfsdg sdf ds fgsd gsdd     
+
+block pageScripts
+  if user.role = "super"
+    .modal-confirm.modal.hide.fade
+      div.modal-header
+          button.close(data-dismiss='modal') x
+          h3 Delete This Post
+      div.modal-body
+          p Are you sure you want to delete this post?
+      div.modal-footer
+          button(data-dismiss="modal").cancel.btn Cancel
+          button#singleDelete.submit.btn Ok
+    script(src='/js/blogEditPage.js')

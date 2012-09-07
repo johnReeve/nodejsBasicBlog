@@ -1,0 +1,20 @@
+- user = typeof(udata) != 'undefined' ? udata : {}
+
+script(src='/lib/bootstrap/js/jquery.js')
+script(src='/lib/bootstrap/js/bootstrap-transition.js')
+script(src='/lib/bootstrap/js/bootstrap-alert.js')
+script(src='/lib/bootstrap/js/bootstrap-modal.js')
+script(src='/lib/bootstrap/js/bootstrap-dropdown.js')
+script(src='/lib/bootstrap/js/bootstrap-scrollspy.js')
+script(src='/lib/bootstrap/js/bootstrap-tab.js')
+script(src='/lib/bootstrap/js/bootstrap-tooltip.js')
+script(src='/lib/bootstrap/js/bootstrap-popover.js')
+script(src='/lib/bootstrap/js/bootstrap-button.js')
+script(src='/lib/bootstrap/js/bootstrap-collapse.js')
+script(src='/lib/bootstrap/js/bootstrap-carousel.js')
+script(src='/lib/bootstrap/js/bootstrap-typeahead.js')
+
+script(src='/js/jquery-validation/jquery.validate.js')
+
+if !user.name
+  script(src='/js/modalLogin.js')

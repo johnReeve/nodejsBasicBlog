@@ -1,0 +1,32 @@
+div#signup-modal.modal(style="display:none;")
+  div.modal-header
+    a.close(href='#', data-dismiss="modal") x
+    h3 Log In
+  div.modal-body
+    div.row-fluid
+      div.span8
+        form.form-horizontal(method="post", id="modal-signin-form")
+          div.control-group
+            label.control-label(for="user") User Name :
+            div.controls
+              input.input-small.span12(type="text", id="user", name="user")
+          div.control-group
+            label.control-label(for="pass") Password :
+            div.controls
+              input.input-small.span12(type="password", id="pass", name="pass")
+            div.control-group
+              div.controls
+                label.checkbox(for="remember-me") 
+                  input(type="checkbox", name="remember-me") 
+                  | Remember Me
+          p
+            a#forgotPassword(href="#") Forgot your password? |  
+            a#needAccess(href="#") Need An Account?
+
+  div.modal-footer
+    a#signinCancel.btn.btn-danger(href='#', data-dismiss="modal") 
+      i.icon-ban-circle.icon-white 
+      | Cancel
+    a#modalSignin.btn.btn-primary(href='#', data-dismiss="modal")
+      i.icon-briefcase.icon-white 
+      | Log In
