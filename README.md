@@ -14,7 +14,9 @@ All in all, it's a fun, fun learning experinece, but please don't expect that th
 	
 ##The Project:
 
-This is my first attempt at setting up basic site functionailty in nodejs.  It uses express and jade for the general architecture and Mongo as the database.  Although I know HTML/CSS/JS  pretty well, I've opted to just use bootstrap because it looks pretty and has a bunch of functions that I like.
+This is my first attempt at setting up basic site functionailty in nodejs.  It uses express and jade for the general architecture and Mongo as the database.  Although I know HTML/CSS/JS  pretty well, I've opted to just use bootstrap because it looks pretty and has a bunch of functions that I like. 
+
+There are a bunch of references to a "Google Analytics Tower", which is something else that I'm working on, but that is kinda immaterial to why you might want to use this as a starting point...
 	
 Basic functionality should be there.  There are users, static pages, and posts.  While I'm still working out the users, the posts have a complete CRUD functionality.  There is no init for the database... if you want to create a user, un comment out the end point for the create a user and hit it.
 	
