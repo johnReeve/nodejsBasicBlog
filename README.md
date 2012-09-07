@@ -4,7 +4,7 @@
 
 This is just a learning project for me to try and work out how the hell to work with node js
 
-Background:
+##Background:
 
 I'm a pretty hack WordPress developer for my day job, but I'm trying to get better at being a programmer.
 	
